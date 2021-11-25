@@ -1,0 +1,166 @@
+body {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  background-color: #ededed;
+}
+main {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 0 0;
+} 
+
+.box-1 {
+  width:300px;
+  height:200px;
+  background-color: #ccc;
+ // transition: ease-in 0.5s;
+}
+.box-1:hover {
+ // background-color: rgb(61, 165, 251);
+  /* transition: ease-in 0.5s;  put here to show error on hover out */
+}
+
+.box-2 {
+  width:300px;
+  height:200px;
+  background-color: #999;
+  /* transition: ease-in 0.5s;  put here to show error on hover for another block */
+}
+
+.box-2:hover + .box-3 {
+//  background-color: rgb(137, 69, 210);
+  // height:300px; // add later after showing issue with keyframe
+}
+
+.box-3 {
+  width:300px;
+  height:200px;
+  background-color: #555;
+ // transition: ease-in 1s;
+}
+
+
+
+.box-4 {
+  width:300px;
+  height:200px;
+  background-color: rgb(103, 103, 103);
+}
+
+
+.box-5 {
+  width:300px;
+  height:200px;
+  background-color: rgb(83, 83, 83);
+}
+
+
+.box-6 {
+  width:300px;
+  height:200px;
+  background-color: #3d3d3d;
+  //animation-name: makeTallerOut;
+  //animation-duration: 2s;
+ // animation-duration: 2s; 
+}
+
+.box-6:hover {
+  animation-name: makeTaller;
+
+  //animation-name: makeTallerIn;
+  animation-duration: 2s;
+}
+
+@keyframes makeTaller {
+  0% {
+      height: 200px;
+  }
+  100% {
+      height: 300px;
+  }
+  
+}
+
+@keyframes makeTallerIn {
+  0% {
+      height: 200px;
+  }
+  100% {
+      height: 300px;
+  }
+  
+}
+
+
+@keyframes makeTallerOut {
+  
+  0% {
+      height: 300px;
+  }
+  100% {
+    height: 200px;
+  } 
+
+  
+}
+
+
+
+
+
+/* Section top START */
+.section.top {
+  box-sizing: border-box;
+  text-align: center;
+  background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
+  color:#555;
+  font-size:30px;
+  padding-top:10vh;
+  margin-top:10vh;
+  height: 50vh;
+
+
+  div {
+    display: inline-block;  // hide + vertical position
+    overflow:hidden; // hide text-blocks
+  }
+  
+  .static.texttop {
+    animation: showup 6s infinite 
+  }
+  .animated.texttop {
+    width:0px;
+    animation: reveal 6s infinite
+  }
+
+  .animated.texttop span {
+  //  margin-left: -605px;
+    animation: slidein 6s infinite
+  }
+
+  p{
+    font-size:14px;
+    color:#999;
+    //margin-top:50px;
+  }
+  @keyframes showup {
+    0% {opacity: 0}
+    20% {opacity: 1} // change to see difference in fade in
+    80% {opacity: 1}
+    100% {opacity: 0}
+  }
+  @keyframes slidein { 
+    0% {margin-left: -600px}
+    20% {margin-left: -600px}
+    40% {margin-left: 0px}
+    100% {margin-left: 0px}
+  }
+  @keyframes reveal {
+    0% {opacity: 0; width:0px;}
+    20% {opacity: 1; width:0px;}
+    30% { width:555px }  // change to show effect on box that slidesIn
+    80% {opacity: 1}
+    100% {opacity: 0; width: 555px;}
+  }
+}
